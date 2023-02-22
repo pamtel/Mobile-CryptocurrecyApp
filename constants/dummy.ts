@@ -3,6 +3,16 @@ export interface IPortfolio {
   changes: string;
 }
 
+export interface ITransactionHistory {
+  id: number;
+  description: string;
+  amount: number;
+  currency: string;
+  type: string;
+  date: string;
+}
+[];
+
 export interface ITrendingCurrencies {
   id: number;
   currency: string;
@@ -426,7 +436,7 @@ export const trendingCurrencies: ITrendingCurrencies[] = [
   },
 ];
 
-export const transactionHistory = [
+export const transactionHistory: ITransactionHistory[] = [
   {
     id: 1,
     description: 'Sold Ethereum',
