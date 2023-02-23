@@ -3,7 +3,12 @@ import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native'
 import { COLORS, FONTS, SIZES, icons } from '../constants'
 import { ITransactionHistory } from '../constants/dummy'
 
-export const TransactionHistory = ({ customContainerStyle, history }: { customContainerStyle: any, history: ITransactionHistory[] }) => {
+interface ITransactionHistoryComponent {
+  customContainerStyle: any,
+  history: ITransactionHistory[] | undefined
+}
+
+export const TransactionHistory = ({ customContainerStyle, history }: ITransactionHistoryComponent) => {
   const renderItem = (item: ITransactionHistory) => (
     <TouchableOpacity
       style={{
@@ -22,7 +27,7 @@ export const TransactionHistory = ({ customContainerStyle, history }: { customCo
         }}
       />
       <View style={{ flex: 1, marginLeft: SIZES.radius }}>
-        <Text style={{ ...FONTS.h4, fontWeight: '600' }}>{item.description}</Text>
+        <Text style={{ ...FONTS.h4, fontWeight: '700' }}>{item.description}</Text>
         <Text style={{ color: COLORS.gray, ...FONTS.body4 }}>{item.date}</Text>
       </View>
       <View style={{ flexDirection: 'row', height: '100%', alignItems: 'center' }}>

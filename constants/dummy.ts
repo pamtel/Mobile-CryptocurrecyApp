@@ -24,14 +24,7 @@ export interface ITrendingCurrencies {
   description: string;
   chartData: {x: number; y: number}[];
   wallet: {value: string; crypto: string};
-  transactionHistory: {
-    id: number;
-    description: string;
-    amount: number;
-    currency: string;
-    type: string;
-    date: string;
-  }[];
+  transactionHistory: ITransactionHistory[];
 }
 
 export interface IchartOptions {
