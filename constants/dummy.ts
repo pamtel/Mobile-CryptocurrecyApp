@@ -34,6 +34,11 @@ export interface ITrendingCurrencies {
   }[];
 }
 
+export interface IchartOptions {
+  id: number;
+  label: string;
+}
+
 export const portfolio: IPortfolio = {
   balance: '12,724.33',
   changes: '+2.36%',
@@ -512,7 +517,7 @@ export const transactionHistory: ITransactionHistory[] = [
   },
 ];
 
-const chartOptions = [
+const chartOptions: IchartOptions[] = [
   {
     id: 1,
     label: '1 hr',

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList, Image, ImageBackground } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList, Image, ImageBackground, LogBox } from 'react-native'
 import { dummyData, COLORS, SIZES, FONTS, icons, images } from '../constants';
 import { ITrendingCurrencies, ITransactionHistory } from '../constants/dummy';
 import { PriceAlert, TransactionHistory } from '../components';
@@ -16,6 +16,10 @@ export const Home = ({ navigation }: Iprops): JSX.Element => {
   const [trending, setTrending] = useState<ITrendingCurrencies[]>(dummyData.trendingCurrencies)
   const [transactionHistory, setTransactionHistory] = useState<ITransactionHistory[]>(dummyData.transactionHistory)
 
+  useEffect(() => {
+    // ignore warning log
+    // LogBox.ignoreLogs(['the error message'])
+  }, [])
 
 
   const renderHeader = () => {
@@ -31,6 +35,7 @@ export const Home = ({ navigation }: Iprops): JSX.Element => {
           borderRadius: 10,
           backgroundColor: COLORS.white
         }}
+        onPress={() => navigation.navigate('CryptoDetail', { currency: item })}
       >
         {/* Currency */}
         <View style={{ flexDirection: 'row' }}>

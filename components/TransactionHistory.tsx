@@ -22,8 +22,14 @@ export const TransactionHistory = ({ customContainerStyle, history }: { customCo
         }}
       />
       <View style={{ flex: 1, marginLeft: SIZES.radius }}>
-        <Text style={{ ...FONTS.h3 }}>{item.description}</Text>
+        <Text style={{ ...FONTS.h4, fontWeight: '600' }}>{item.description}</Text>
         <Text style={{ color: COLORS.gray, ...FONTS.body4 }}>{item.date}</Text>
+      </View>
+      <View style={{ flexDirection: 'row', height: '100%', alignItems: 'center' }}>
+        <Text style={{ color: item.type == 'B' ? COLORS.green : COLORS.black, fontWeight: '700', ...FONTS.h4 }}>
+          {item.amount} {item.currency}
+        </Text>
+        <Image source={icons.right_arrow} style={{ width: 20, height: 20, tintColor: COLORS.gray }} />
       </View>
     </TouchableOpacity>
   )
