@@ -2,8 +2,14 @@ import React from 'react'
 import { View, Text, Image } from 'react-native'
 import { COLORS, SIZES, FONTS } from '../constants'
 
+interface ICurrencyLabel {
+  icon: any,
+  currency: string,
+  code: string,
+}
 
-export const CurrencyLabel = ({ icon, currency, code }: any) => {
+
+export const CurrencyLabel = ({ icon, currency, code }: ICurrencyLabel) => {
   return (
     <View style={{ flexDirection: 'row' }}>
       <Image
